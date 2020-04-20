@@ -30,4 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  project:
+    create_message: 'Project created successfully.'
+    update_message: 'Project updated successfully.'
+    destroy_message: 'Project deleted successfully.'
+

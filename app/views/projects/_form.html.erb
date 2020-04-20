@@ -1,0 +1,52 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Project</h4>
+            <p class="card-category">Project Details</p>
+          </div>
+          <div class="card-body">
+            <%= form_for :project, url: projects_path, method: :post do |form| %>
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <%= form.label :name, class: "form-control-label bmd-label-floating" do %>Name
+                      <span class='text-danger'>*</span>
+                    <% end %>
+                    <%= form.text_field :name, class: 'form-control', placeholder: 'Enter project name' %>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <%= form.label :description, class: "form-control-label bmd-label-floating" do %>Description
+                      <span class='text-danger'>*</span>
+                    <% end %>
+                    <%= form.text_field :description, class: 'form-control', placeholder: 'Enter project description' %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <%= form.label :status, class: "form-control-label" do %>Status
+                      <span class='text-danger'>*</span>
+                    <% end %>
+                    <%= form.select :status, options_for_select(set_project_status), { include_blank: '-- Select project status --' },  class: 'form-control dropdown', required: true %>
+                  </div>
+                </div>
+              </div>
+              <div class="bottom-btn two-btn btn-row">
+                <%= link_to projects_path, class: 'btn btn-outline-secondary btn-sm' do %>
+                  <i class="fa fa-arrow-left left" aria-hidden="true"></i>Back
+                <% end %>
+                <%= form.button(type: 'submit', class: "btn btn-primary btn-sm") do %>
+                  <i class="fa fa-check left" aria-hidden="true"></i>Submit
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
