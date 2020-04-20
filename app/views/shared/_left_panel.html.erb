@@ -1,0 +1,31 @@
+<div class="sidebar" data-color="purple" data-background-color="white" data-image="../assets/img/sidebar-1.jpg">
+  <div class="logo">
+    <%= link_to 'Project Management', root_path, class: "simple-text logo-normal" %>
+  </div>
+  <div class="sidebar-wrapper">
+    <ul class="nav navbar-nav">
+      <li class="nav-item <%= active_class('home') %>">
+        <%= link_to root_path, class: 'nav-link' do %>Dashboard
+          <i class="material-icons">dashboard</i>
+        <% end %>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="./user.html">
+          <i class="material-icons">person</i>
+          <p>User Profile</p>
+        </a>
+      </li>
+      <li class="nav-item <%= active_class('projects') %>">
+        <%= link_to projects_path, class: 'nav-link' do %>Projects
+          <i class="material-icons">content_paste</i>
+        <% end %>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="./typography.html">
+          <i class="material-icons">library_books</i>
+          <p>Tasks</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
