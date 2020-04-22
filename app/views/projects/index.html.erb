@@ -18,18 +18,35 @@
                       <tr>
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">End Date</th>
+                        <th scope="col">Internal Demo Date</th>
+                        <th scope="col" colspan="2">Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <% @projects.each do |project| %>
-                        <% index = 0 %>
+                      <% @projects.each_with_index do |project, index| %>
                         <tr>
-                          <td scope="row"><%= index += 1 %></td>
-                          <td scope="row"><%= project.name %></td>
+                          <td scope="row"><%= index_count_increment(index) %></td>
+                          <td scope="row"><%= link_to project.name, project_path(id: project.id) %></td>
+                          <td scope="row"><%= project.status %></td>
+                          <td scope="row"><%= formatted_date(project.start_date) %></td>
+                          <td scope="row"><%= formatted_date(project.end_date) %></td>
+                          <td scope="row"><%= formatted_date(project.internal_demo_date) %></td>
+                          <td scope="row">
+                            <%= link_to edit_project_path(id: project.id) do %>
+                              <i class='fa fa-edit pd-6' data-placement="bottom" title='Edit'></i>
+                            <% end %>
+                            <%= link_to project_path(id: project.id), method: :delete, data: { confirm: "Are you sure want to delete project?" }, class: 'confirm disable-right-click' do %>
+                              <i class='fa fa-trash pd-6' data-placement="bottom" title='Delete'></i>
+                            <% end %>
+                          </td>
                         </tr>
                       <% end %>
                     </tbody>
                   </table>
+                  <%= paginate @projects %>
                 <% end %>
               </div>
             </div>
