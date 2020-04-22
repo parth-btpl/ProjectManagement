@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :find_project, only: [:show, :edit, :update, :destroy]
 
   def index
     @projects = pagination(Project.all)
@@ -50,7 +50,7 @@ class ProjectsController < ApplicationController
   end
 
   private
-    def set_project
+    def find_project
       @project = Project.find(params[:id])
     end
 

@@ -5,40 +5,38 @@
         <div class="row">
           <div class="card">
             <div class="card-header card-header-primary">
-              <h4 class="card-title "><b>Project Listing</b></h4>
-              <%= link_to new_project_path, class: 'btn btn-primary btn-sm float-right' do %>
-                <i class="fa fa-plus left" aria-hidden="true"></i><span>Project</span>
+              <h4 class="card-title "><b>Tasks Listing</b></h4>
+              <%= link_to new_project_task_path, class: 'btn btn-primary btn-sm float-right' do %>
+                <i class="fa fa-plus left" aria-hidden="true"></i><span>Task</span>
               <% end %>
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <% if @projects.present? %>
+                <% if @tasks.present? %>
                   <table class="table">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Name</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
                         <th scope="col">Status</th>
-                        <th scope="col">Start Date</th>
-                        <th scope="col">End Date</th>
-                        <th scope="col">Internal Demo Date</th>
+                        <th scope="col">Delivery Date</th>
                         <th scope="col" colspan="2">Action</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <% @projects.each_with_index do |project, index| %>
+                      <% @tasks.each_with_index do |task, index| %>
                         <tr>
                           <td scope="row"><%= index_count_increment(index) %></td>
-                          <td scope="row"><%= link_to project.name, project_tasks_path(project_id: project.id) %></td>
-                          <td scope="row"><%= project.status %></td>
-                          <td scope="row"><%= formatted_date(project.start_date) %></td>
-                          <td scope="row"><%= formatted_date(project.end_date) %></td>
-                          <td scope="row"><%= formatted_date(project.internal_demo_date) %></td>
+                          <td scope="row"><%= task.title %></td>
+                          <td scope="row"><%= task.description %></td>
+                          <td scope="row"><%= task.status %></td>
+                          <td scope="row"><%= formatted_date(task.delivery_date) %></td>
                           <td scope="row">
-                            <%= link_to edit_project_path(id: project.id) do %>
+                            <%= link_to edit_project_task_path(id: task.id) do %>
                               <i class='fa fa-edit pd-6' data-placement="bottom" title='Edit'></i>
                             <% end %>
-                            <%= link_to project_path(id: project.id), method: :delete, data: { confirm: "Are you sure want to delete project?" }, class: 'confirm disable-right-click' do %>
+                            <%= link_to project_task_path(id: task.id), method: :delete, data: { confirm: "Are you sure want to delete task?" }, class: 'confirm disable-right-click' do %>
                               <i class='fa fa-trash pd-6' data-placement="bottom" title='Delete'></i>
                             <% end %>
                           </td>
@@ -46,7 +44,7 @@
                       <% end %>
                     </tbody>
                   </table>
-                  <%= paginate @projects %>
+                  <%= paginate @tasks %>
                 <% end %>
               </div>
             </div>

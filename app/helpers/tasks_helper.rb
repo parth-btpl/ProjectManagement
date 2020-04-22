@@ -1,0 +1,5 @@
+module TasksHelper
+  def set_task_status
+    enum_to_options_array(Task, 'status')
+  end
+end
