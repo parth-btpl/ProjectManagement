@@ -4,7 +4,8 @@ class TasksController < ApplicationController
   before_action :find_task, only: %i[show edit update destroy]
 
   def index
-    @tasks = pagination(find_project.tasks)
+    @q = find_project.tasks.ransack(params[:q])
+    @tasks = pagination(@q.result)
   end
 
   def new
