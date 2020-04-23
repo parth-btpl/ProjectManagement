@@ -5,13 +5,13 @@
         <div class="row">
           <div class="card">
             <div class="card-header card-header-primary">
-              <h4 class="card-title "><b>Tasks Listing</b></h4>
+              <h4 class="card-title "><b>Total Tasks - <%= @tasks.count %></b></h4>
               <%= link_to new_project_task_path, class: 'btn btn-primary btn-sm float-right' do %>
-                <i class="fa fa-plus left" aria-hidden="true"></i><span>Task</span>
+                <i class="fa fa-plus left" aria-hidden="true"></i> <span>Task</span>
               <% end %>
             </div>
             <div class="card-body">
-              <div class="table-responsive">
+              <div class="table-responsive">                
                 <% if @tasks.present? %>
                   <table class="table">
                     <thead>
@@ -46,6 +46,11 @@
                   </table>
                   <%= paginate @tasks %>
                 <% end %>
+              <div class="bottom-btn two-btn btn-row">
+                <%= link_to projects_path, class: 'btn btn-outline-secondary btn-sm' do %>
+                  <i class="fa fa-arrow-left left" aria-hidden="true"></i>Back
+                <% end %>
+              </div>                
               </div>
             </div>
           </div>
