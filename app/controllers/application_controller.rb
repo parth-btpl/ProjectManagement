@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   def pagination(data)
     updated_data = data.is_a?(Array) ? Kaminari.paginate_array(data) : data

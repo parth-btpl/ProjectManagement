@@ -1,19 +1,19 @@
+# frozen_string_literal: true
+
 class ProjectsController < ApplicationController
-  before_action :find_project, only: [:show, :edit, :update, :destroy]
+  before_action :find_project, only: %i[show edit update destroy]
 
   def index
     @projects = pagination(Project.all)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @project = Project.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @project = Project.new(project_params)
@@ -50,11 +50,12 @@ class ProjectsController < ApplicationController
   end
 
   private
-    def find_project
-      @project = Project.find(params[:id])
-    end
 
-    def project_params
-      params.require(:project).permit(:name, :description, :status, :start_date, :end_date, :internal_demo_date)
-    end
+  def find_project
+    @project = Project.find(params[:id])
+  end
+
+  def project_params
+    params.require(:project).permit(:name, :description, :status, :start_date, :end_date, :internal_demo_date)
+  end
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TasksController < ApplicationController
   before_action :find_task, only: %i[show edit update destroy]
 
@@ -11,8 +13,7 @@ class TasksController < ApplicationController
 
   def edit; end
 
-  def show
-  end
+  def show; end
 
   def create
     @task = find_project.tasks.new(task_params)
