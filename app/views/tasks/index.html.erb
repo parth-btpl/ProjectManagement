@@ -5,7 +5,8 @@
         <div class="row">
           <div class="card">
             <div class="card-header card-header-primary">
-              <h4 class="card-title "><b>Total Tasks - <%= @tasks.count %></b></h4>
+              <h4 class="card-title "><b>Project Name - <%= @tasks_project_name %></b></h4>
+              <h4 class="card-title "><b>Total Tasks - <%= @task_count %></b></h4>
               <%= link_to new_project_task_path, class: 'btn btn-primary btn-sm float-right' do %>
                 <i class="fa fa-plus left" aria-hidden="true"></i> <span>Task</span>
               <% end %>

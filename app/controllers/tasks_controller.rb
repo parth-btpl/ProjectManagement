@@ -6,6 +6,8 @@ class TasksController < ApplicationController
   def index
     @q = find_project.tasks.ransack(params[:q])
     @tasks = pagination(@q.result)
+    @task_count = find_project.tasks.count
+    @tasks_project_name = find_project.name
   end
 
   def new
