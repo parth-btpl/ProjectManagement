@@ -31,7 +31,7 @@
                     <%= form.label :status, class: "form-control-label" do %>Status
                       <span class='text-danger'>*</span>
                     <% end %>
-                    <%= form.select :status, options_for_select(set_task_status), { include_blank: '-- Select task status --' },  class: 'form-control dropdown', required: true %>
+                    <%= form.select :status, options_for_select(set_task_status, form.object.status), { include_blank: '-- Select task status --' },  class: 'form-control dropdown', required: true %>
                   </div>
                 </div>
                 <div class="col-md-4">
