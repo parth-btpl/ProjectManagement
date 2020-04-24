@@ -4,7 +4,8 @@ class ProjectsController < ApplicationController
   before_action :find_project, only: %i[show edit update destroy]
 
   def index
-    @projects = pagination(Project.all)
+    @q = Project.ransack(params[:q])
+    @projects = pagination(@q.result)
   end
 
   def show; end

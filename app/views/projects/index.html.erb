@@ -11,17 +11,29 @@
               <% end %>
             </div>
             <div class="card-body">
+              <div class='row mb-2'>
+                <div class="col-md-12">
+                  <%= search_form_for @q, url: projects_path do |f| %>
+                    <div class="input-group">
+                      <%= f.search_field :search_cont, value: params.dig('q', 'search_cont'), class: 'form-control search', placeholder: "Search projects by name..."  %>
+                      <div class="input-group-append">
+                        <%= f.submit "search", class: "btn btn-outline-primary btn-sm" %>
+                      </div>
+                    </div>  
+                  <% end %>
+                </div>
+              </div>
               <div class="table-responsive">
                 <% if @projects.present? %>
                   <table class="table">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Start Date</th>
-                        <th scope="col">End Date</th>
-                        <th scope="col">Internal Demo Date</th>
+                        <th scope="col"><%= sort_link(@q, :name) %></th>
+                        <th scope="col"><%= sort_link(@q, :status) %></th>
+                        <th scope="col"><%= sort_link(@q, :start_date) %></th>
+                        <th scope="col"><%= sort_link(@q, :end_date) %></th>
+                        <th scope="col"><%= sort_link(@q, :internal_demo_date) %></th>
                         <th scope="col" colspan="2">Action</th>
                       </tr>
                     </thead>

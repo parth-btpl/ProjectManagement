@@ -17,10 +17,10 @@
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Delivery Date</th>
+                        <th scope="col"><%= sort_link(@q, :title) %></th>
+                        <th scope="col"><%= sort_link(@q, :description) %></th>
+                        <th scope="col"><%= sort_link(@q, :status) %></th>
+                        <th scope="col"><%= sort_link(@q, :delivery_date) %></th>
                         <th scope="col" colspan="2">Action</th>
                       </tr>
                     </thead>
