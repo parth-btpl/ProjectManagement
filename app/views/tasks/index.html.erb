@@ -12,6 +12,19 @@
               <% end %>
             </div>
             <div class="card-body">
+            <div class="card-body">
+              <div class='row mb-2'>
+                <div class="col-md-12">
+                  <%= search_form_for @q, url: project_tasks_path do |f| %>
+                    <div class="input-group">
+                      <%= f.search_field :search_cont, value: params.dig('q', 'search_cont'), class: 'form-control search', placeholder: "Search task by name or description..."  %>
+                      <div class="input-group-append">
+                        <%= f.submit "search", class: "btn btn-outline-primary btn-sm" %>
+                      </div>
+                    </div>  
+                  <% end %>
+                </div>
+              </div>            
               <div class="table-responsive">                
                 <% if @tasks.present? %>
                   <table class="table">
