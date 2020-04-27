@@ -14,5 +14,11 @@ module ApplicationHelper
     when :danger, :error, :alert
       'alert-danger'
     end
+  def index_count_increment(index)
+    ((params[:page] || INDEX_COUNT).to_i - INDEX_COUNT) * PER_PAGE + index + INDEX_COUNT
+  end
+
+  def formatted_date(date)
+    date.strftime(DATE_FORMAT)
   end
 end

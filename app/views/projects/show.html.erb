@@ -1,0 +1,33 @@
+<div class="main-wrap">
+  <div class="wrapper ">
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title "><b>Project Details</b></h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="row"><%= @project.name %></td>
+                      <td scope="row"><%= @project.status %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
