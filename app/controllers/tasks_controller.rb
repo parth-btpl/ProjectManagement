@@ -16,7 +16,9 @@ class TasksController < ApplicationController
 
   def edit; end
 
-  def show; end
+  def show
+    @comments = find_task.comments
+  end
 
   def create
     @task = find_project.tasks.new(task_params)

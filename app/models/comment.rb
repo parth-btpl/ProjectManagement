@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Comment < ApplicationRecord
-  belong_to :task
+  belongs_to :task
 end
