@@ -6,5 +6,4 @@ class Task < ApplicationRecord
   has_many :comments, dependent: :destroy
   validates :title, :description, :status, :delivery_date, presence: true
   ransack_alias :search, :title_or_description
-  # has_many_attached :pictures, through: :comments
 end
