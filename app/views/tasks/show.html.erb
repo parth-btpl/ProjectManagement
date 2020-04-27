@@ -45,7 +45,7 @@
           <% @comments.each do |comment| %>
             <div class="comment">
               <p class="comment-owner">
-                <p>
+                <p><b>Comment:</b>
                   <%= comment.description %>
                 </p>
                 <% if comment.try(:pictures).attached? %>
