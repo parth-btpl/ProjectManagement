@@ -25,6 +25,10 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 # pagination
 gem 'kaminari', '~> 1.2'
+# searching & sorting
+gem 'ransack', '~> 2.3', '>= 2.3.2'
+# faker data generator
+gem 'faker', '~> 2.11'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
