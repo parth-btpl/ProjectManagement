@@ -18,3 +18,29 @@
  @import 'bootstrap-sprockets';
  @import 'bootstrap';
  @import 'bootstrap-datetimepicker';
+
+.upload-image{
+  position: relative;
+  margin-bottom: 2rem;
+}
+.upload-image .btn-close{
+  position: absolute;
+  top: -8px;
+  padding: 0;
+  margin: 0;
+  font-size: 22px;
+  right: 5px;
+  color: red;
+  line-height: 0;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.uploadedImages{display: flex; flex-wrap: wrap;}
+.uploadedImages .upload-image{margin: 15px; position: relative; border: 1px solid #e8e8e8}
+.uploadedImages .upload-image img{height: 80px; width: 130px; overflow: hidden; object-fit: cover;}
+.uploadedImages .upload-image .btn-close{top:-5px; right: -5px}
+
+@media all and (max-width: 991px) {
+  .uploadedImages .upload-image img {width: 120px;}
+}

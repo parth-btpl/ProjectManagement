@@ -16,7 +16,19 @@ class TasksController < ApplicationController
 
   def edit; end
 
-  def show; end
+  def show
+    @comments = pagination(find_task.comments)
+    images = []
+    @comments.each do |comment|
+      comment.pictures.attachments.each do |image|
+        images << { image_id: image.id, image_url: url_for(image) }
+      end
+      respond_to do |format|
+        format.html
+        format.json { render json: { success: true, comment: @comment.attributes.merge(pictures: images) } }
+      end
+    end
+  end
 
   def create
     @task = find_project.tasks.new(task_params)
@@ -48,6 +60,10 @@ class TasksController < ApplicationController
 
   def find_task
     @task = Task.find(params[:id])
+  end
+
+  def find_comment
+    @comment = Comment.find_by(id: params[:id])
   end
 
   def task_params

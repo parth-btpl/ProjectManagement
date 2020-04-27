@@ -1,0 +1,98 @@
+<div class="main-wrap">
+  <div class="card">
+    <div class="card-header">
+      <strong class="card-title">Task view</strong>
+    </div>
+    <div class="card-body">
+      <div class="row data-listing">
+        <div class="col-lg-3 col-sm-6">
+          <p>
+            <strong>Title: </strong>
+            <%= @task.title %>
+          </p>
+          <p>
+            <strong>Description: </strong>
+            <%= @task.description %>
+          </p>
+        </div>
+      </div>
+      <div class="add-comment row">
+        <div class="col-sm-6">
+          <%= form_for :comment, url: project_task_comments_path(task_id: @task.id) do |f| %>
+            <div class="form-group">
+              <%= f.text_area :description, class: "form-control", placeholder: "Write comment for the task...", rows: 10, required: true %>
+            </div>
+
+            <div class="form-group col-sm-12">
+              <%= f.label :pictures, class: "form-control-label" %>
+              <div class="custom-file">
+                <%= f.file_field :pictures, multiple: true, class: "custom-file-input", id:"customFile" %>
+                <label class="custom-file-label" for="customFile">Choose image</label>
+              </div>
+            </div>           
+
+            <div class="form-group">
+              <%= f.submit "Add comment", class: "btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="all-comments row">
+        <div class="col-sm-12">
+          <% if @comments.present? %>
+            <h3>Comments</h3>
+          <% end %>
+          <% @comments.each do |comment| %>
+            <div class="comment">
+              <p class="comment-owner">
+                <p>
+                  <%= comment.description %>
+                </p>
+                <% if comment.try(:pictures).attached? %>
+                <div class="col-md-12">
+                  <table class='table table-borderless ortanisation-details'>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="row uploadedImages">                
+                            <p class='table-head'>Pictures:</p>
+                            <div>
+                              <div class="uploadedImages">
+                                <% comment.pictures.each do |image| %>
+                                  <figure class="upload-image">
+                                    <% if image.present? %>
+                                      <%= image_tag image %>
+                                    <% end %>
+                                  </figure>
+                                <% end %>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <% end %>
+                <span class="comment-created small">
+                  <%= time_ago_in_words(comment.created_at) %> ago
+                </span>
+                <span class="edit-comment">
+                  <%= link_to edit_project_task_comment_path(task_id: comment.task_id, id: comment.id, project_id: comment.task.project.id) do %>
+                    <i class='fa fa-edit pd-6' data-placement="bottom" title='Edit'></i>
+                  <% end %>
+                </span>
+                <span class="delete-comment">
+                  <%= link_to project_task_comment_path(task_id: comment.task_id, id: comment.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                    <i class='fa fa-trash pd-6' data-placement="bottom" title='Delete'></i>
+                  <% end %>
+                </span>
+              </p><hr>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <%= paginate @comments %>    
+    </div>
+  </div>
+</div>
