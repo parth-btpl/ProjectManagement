@@ -15,3 +15,7 @@ require("channels")
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+//= require moment
+//= require bootstrap-datetimepicker
+//= require date_picker
+//= require project
