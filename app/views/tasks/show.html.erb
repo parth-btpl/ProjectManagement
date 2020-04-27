@@ -23,8 +23,16 @@
               <%= f.text_area :description, class: "form-control", placeholder: "Write comment for the task...", rows: 10, required: true %>
             </div>
 
+            <div class="form-group col-sm-12">
+              <%= f.label :pictures, class: "form-control-label" %>
+              <div class="custom-file">
+                <%= f.file_field :pictures, multiple: true, class: "custom-file-input", id:"customFile" %>
+                <label class="custom-file-label" for="customFile">Choose image</label>
+              </div>
+            </div>           
+
             <div class="form-group">
-              <%= f.button "Add comment", class: "btn btn-success" %>
+              <%= f.submit "Add comment", class: "btn btn-success" %>
             </div>
           <% end %>
         </div>
@@ -40,6 +48,32 @@
                 <p>
                   <%= comment.description %>
                 </p>
+                <div class="col-md-12">
+                  <table class='table table-borderless ortanisation-details'>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <div class="row uploadedImages">                
+                          <% if comment.try(:pictures).attached? %>
+                            <p class='table-head'>Pictures:</p>
+                            <div>
+                              <div class="uploadedImages">
+                                <% comment.pictures.each do |image| %>
+                                  <figure class="upload-image">
+                                    <% if image.present? %>
+                                      <%= image_tag image %>
+                                    <% end %>
+                                  </figure>
+                                <% end %>
+                              </div>
+                            </div>
+                          <% end %>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>                                
                 <span class="comment-created small">
                   <%= time_ago_in_words(comment.created_at) %> ago
                 </span>
@@ -57,7 +91,8 @@
             </div>
           <% end %>
         </div>
-      </div>    
+      </div>
+      <%= paginate @comments %>    
     </div>
   </div>
 </div>
