@@ -10,10 +10,10 @@
         <% end %>
       </li>
       <li class="nav-item ">
-        <a class="nav-link" href="./user.html">
+        <%= link_to users_path, class: 'nav-link' do %>
           <i class="material-icons">person</i>
-          <p>User Profile</p>
-        </a>
+          <p>Users</p>
+        <% end %>
       </li>
       <li class="nav-item <%= active_class('projects') %>">
         <%= link_to projects_path, class: 'nav-link' do %>Projects

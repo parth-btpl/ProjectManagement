@@ -1,5 +1,7 @@
-class HomesController < ApplicationController
+# frozen_string_literal: true
 
-  def index
-  end
+class HomesController < ApplicationController
+  before_action :authenticate_user_from_token!
+
+  def index; end
 end

@@ -1,25 +1,22 @@
-<head>
-  <title>ProjectManagement</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ProjectManagement</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" %>  
-</head>
-
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" %>  
+  </head>
   <body>
-    <p class='notice'><%= notice %></p>
-    <p class='alert'><%= alert %></p>
-    <%= yield %>
+    <%= render 'shared/left_panel' %>
+    <div id="right-panel" class="right-panel">
+      <div class="content">
+        <%= yield %>
+        <div class="clearfix"></div>
+      </div>
+    </div>    
   </body>
 </html>
-<body>
-  <%= render 'shared/left_panel' %>
-  <div id="right-panel" class="right-panel">
-    <div class="content">
-      <%= yield %>
-      <div class="clearfix"></div>
-    </div>
-  </div>    
-</body>
+
