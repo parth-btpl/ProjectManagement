@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def active_class(link_path)
     controller_name == link_path ? 'active' : ''
@@ -13,5 +15,9 @@ module ApplicationHelper
 
   def formatted_date(date)
     date.strftime(DATE_FORMAT)
+  end
+
+  def humanize_data(data)
+    data.try(:humanize)
   end
 end

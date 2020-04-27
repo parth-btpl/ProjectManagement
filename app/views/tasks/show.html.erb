@@ -45,8 +45,8 @@
           <% @comments.each do |comment| %>
             <div class="comment">
               <p class="comment-owner">
-                <p><b>Comment:</b>
-                  <%= comment.description %>
+                <p><u><b>Comment:</b></u>
+                  <%= humanize_data(comment.description) %>
                 </p>
                 <% if comment.try(:pictures).attached? %>
                 <div class="col-md-12">
@@ -75,7 +75,7 @@
                 </div>
                 <% end %>
                 <span class="comment-created small">
-                  <%= time_ago_in_words(comment.created_at) %> ago
+                  <%= humanize_data(time_ago_in_words(comment.created_at)) %> ago
                 </span>
                 <span class="edit-comment">
                   <%= link_to edit_project_task_comment_path(task_id: comment.task_id, id: comment.id, project_id: comment.task.project.id) do %>

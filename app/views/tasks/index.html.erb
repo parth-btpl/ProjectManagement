@@ -41,9 +41,9 @@
                       <% @tasks.each_with_index do |task, index| %>
                         <tr>
                           <td scope="row"><%= index_count_increment(index) %></td>
-                          <td scope="row"><%= link_to task.title, project_task_path(id: task.id) %></td>
-                          <td scope="row"><%= task.description %></td>
-                          <td scope="row"><%= task.status %></td>
+                          <td scope="row"><%= link_to humanize_data(task.title), project_task_path(id: task.id) %></td>
+                          <td scope="row"><%= humanize_data(task.description) %></td>
+                          <td scope="row"><%= humanize_data(task.status) %></td>
                           <td scope="row"><%= formatted_date(task.delivery_date) %></td>
                           <td scope="row">
                             <%= link_to edit_project_task_path(id: task.id) do %>
