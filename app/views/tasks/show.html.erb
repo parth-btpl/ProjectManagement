@@ -20,7 +20,7 @@
         <div class="col-sm-6">
           <%= form_for :comment, url: project_task_comments_path(task_id: @task.id) do |f| %>
             <div class="form-group">
-              <%= f.text_area :description, class: "form-control", placeholder: "Write comment for the task...", rows: 10, required: true %>
+              <%= f.text_area :description, class: "form-control", placeholder: "Write comment for the task...", rows: 5, required: true %>
             </div>
 
             <div class="form-group col-sm-12">
