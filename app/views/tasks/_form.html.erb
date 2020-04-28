@@ -1,56 +1,42 @@
-<div class="content">
-  <div class="container-fluid">
+<div class="card-body">
+  <%= form_with(model: task, url: url, method: method, local: true) do |form| %>
     <div class="row">
-      <div class="col-md-8">
-        <div class="card">
-          <div class="card-header card-header-primary">
-            <h4 class="card-title">Task</h4>
-            <p class="card-category">Task Details</p>
-          </div>
-          <div class="card-body">
-            <%= form_with(model: task, url: url, method: method, local: true) do |form| %>
-              <div class="row">
-                <div class="col-md-5">
-                  <div class="form-group">
-                    <%= form.label :title, class: "form-control-label bmd-label-floating" do %>Title
-                      <span class='text-danger'>*</span>
-                    <% end %>
-                    <%= form.text_field :title, class: 'form-control', placeholder: 'Enter task title', required: true %>
-                  </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="form-group">
-                    <%= form.label :description, class: "form-control-label bmd-label-floating" do %>Description
-                      <span class='text-danger'>*</span>
-                    <% end %>
-                    <%= form.text_field :description, class: 'form-control', placeholder: 'Enter task description', required: true %>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <%= form.label :status, class: "form-control-label" do %>Status
-                      <span class='text-danger'>*</span>
-                    <% end %>
-                    <%= form.select :status, options_for_select(set_task_status, form.object.status), { include_blank: '-- Select task status --' },  class: 'form-control dropdown', required: true %>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <%= form.label :delivery_date, class: "form-control-label" %>
-                  <%= form.date_field :delivery_date, class: 'form-control datepicker', autocomplete: 'off', placeholder: "select delivery date", required: true %>
-                </div>
-              </div>
-              <div class="bottom-btn two-btn btn-row">
-                <%= link_to project_tasks_path, class: 'btn btn-outline-secondary btn-sm' do %>
-                  <i class="fa fa-arrow-left left" aria-hidden="true"></i>Back
-                <% end %>
-                <%= form.button(type: 'submit', class: "btn btn-primary btn-sm") do %>
-                  <i class="fa fa-check left" aria-hidden="true"></i>Submit
-                <% end %>
-              </div>
-            <% end %>
-          </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <%= form.label :title, class: "form-control-label bmd-label-floating" do %>Title
+            <span class='text-danger'>*</span>
+          <% end %>
+          <%= form.text_field :title, class: 'form-control', placeholder: 'Enter task title', required: true %>
         </div>
       </div>
+      <div class="col-md-3">
+        <div class="form-group">
+          <%= form.label :description, class: "form-control-label bmd-label-floating" do %>Description
+            <span class='text-danger'>*</span>
+          <% end %>
+          <%= form.text_field :description, class: 'form-control', placeholder: 'Enter task description', required: true %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <%= form.label :status, class: "form-control-label" do %>Status
+            <span class='text-danger'>*</span>
+          <% end %>
+          <%= form.select :status, options_for_select(set_task_status, form.object.status), { include_blank: '-- Select task status --' },  class: 'form-control dropdown', required: true %>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <%= form.label :delivery_date, class: "form-control-label" %>
+        <%= form.date_field :delivery_date, class: 'form-control datepicker', autocomplete: 'off', placeholder: "select delivery date", required: true %>
+      </div>
     </div>
-  </div>
+    <div class="bottom-btn two-btn btn-row">
+      <%= link_to project_tasks_path, class: 'btn btn-outline-secondary btn-sm' do %>
+        <i class="fa fa-arrow-left left" aria-hidden="true"></i>Back
+      <% end %>
+      <%= form.button(type: 'submit', class: "btn btn-primary btn-sm") do %>
+        <i class="fa fa-check left" aria-hidden="true"></i><%= pro_submit_button %>
+      <% end %>
+    </div>
+  <% end %>
 </div>

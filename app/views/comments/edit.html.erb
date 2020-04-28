@@ -2,10 +2,9 @@
   <section class="edit-comment">
     <header>
       <h1>
-        Edit comment
+        Edit Comment
       </h1>
     </header>
-
     <div class="row">
       <div class="col-sm-6">
         <%= form_for :comment, url: project_task_comment_path(@task, @comment, project_id: @task.project.id), method: :patch do |f| %>
