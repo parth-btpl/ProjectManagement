@@ -15,7 +15,7 @@
             <%= @task.description %>
           </p>
         </div>
-      </div>
+      </div><hr>
       <div class="add-comment row">
         <div class="col-sm-6">
           <%= form_for :comment, url: project_task_comments_path(task_id: @task.id) do |f| %>
@@ -36,7 +36,7 @@
             </div>
           <% end %>
         </div>
-      </div>
+      </div><hr>
       <div class="all-comments row">
         <div class="col-sm-12">
           <% if @comments.present? %>
