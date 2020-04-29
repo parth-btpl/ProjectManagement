@@ -1,0 +1,12 @@
+<% flash.each do |type, message| %>
+  <div id='flash' class="alert alert-dismissible <%= build_alert_classes(type) %>">
+    <% if message.is_a?Array %>
+      <% message.each do |msg| %> 
+        <li><%= msg %></li>
+      <% end %>
+    <% else %>
+      <%= message %>
+    <% end %>
+    <button type="button" class="close" data-dismiss="alert">×</button>
+  </div>
+<% end %>

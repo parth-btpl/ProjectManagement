@@ -1,0 +1,44 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">User</h4>
+            <p class="card-category">Create User</p>
+          </div>
+          <div class="card-body">
+            <%= form_for :user, url: users_path, method: :post do |form| %>
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <%= form.label :name, class: "form-control-label bmd-label-floating" do %>Name
+                      <span class='text-danger'>*</span>
+                    <% end %>
+                    <%= form.text_field :name, class: 'form-control', placeholder: 'Enter user name' %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <%= form.label :email, class: "form-control-label" do %>Status
+                      <span class='text-danger'>*</span>
+                    <% end %>
+                    <%= form.text_field :email, class: 'form-control', placeholder: 'Enter users email' %>
+                  </div>
+                </div>
+              </div>
+              <div class="bottom-btn two-btn btn-row">
+                <%= link_to users_path, class: 'btn btn-outline-secondary btn-sm' do %>
+                  <i class="fa fa-arrow-left left" aria-hidden="true"></i>Back
+                <% end %>
+                <%= form.button(type: 'submit', class: "btn btn-primary btn-sm") do %>
+                  <i class="fa fa-check left" aria-hidden="true"></i>Submit
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
