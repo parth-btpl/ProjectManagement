@@ -5,5 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :database_authenticatable, :confirmable, :invitable, invite_for: 2.weeks
 
+  has_many :users_projects
+  has_many :projects, through: :users_projects
   validates :email, presence: true, uniqueness: { case_sensitive: false }
 end

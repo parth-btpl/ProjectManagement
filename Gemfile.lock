@@ -259,11 +259,8 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
-<<<<<<< HEAD
   devise_invitable (~> 2.0.0)
-=======
   faker (~> 2.11)
->>>>>>> f7d33407663aefdd92726429462b1730f8d61c0c
   font-awesome-rails (~> 4.7, >= 4.7.0.5)
   jbuilder (~> 2.7)
   kaminari (~> 1.2)

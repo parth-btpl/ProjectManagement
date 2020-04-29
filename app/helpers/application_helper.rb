@@ -14,6 +14,8 @@ module ApplicationHelper
     when :danger, :error, :alert
       'alert-danger'
     end
+  end
+  
   def index_count_increment(index)
     ((params[:page] || INDEX_COUNT).to_i - INDEX_COUNT) * PER_PAGE + index + INDEX_COUNT
   end

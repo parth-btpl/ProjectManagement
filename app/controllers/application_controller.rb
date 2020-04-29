@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
     if user && Devise.secure_compare(user.authentication_token, token)
       sign_in user, store: false
     end
+  end
+  
   def pagination(data)
     updated_data = data.is_a?(Array) ? Kaminari.paginate_array(data) : data
     updated_data.page(params[:page]).per(PER_PAGE)
