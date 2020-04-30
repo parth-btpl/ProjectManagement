@@ -20,4 +20,13 @@ module ApplicationHelper
   def humanize_data(data)
     data.try(:humanize)
   end
+
+  def build_alert_classes(alert_type)
+    case alert_type.to_sym
+    when :notice, :success
+      'alert-success'
+    when :danger, :error, :alert
+      'alert-danger'
+    end
+  end
 end

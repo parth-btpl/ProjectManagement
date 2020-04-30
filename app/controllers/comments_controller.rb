@@ -21,6 +21,7 @@ class CommentsController < ApplicationController
   def create
     @comment = find_task.comments.new(comment_params)
     if @comment.save
+      flash[:success] = "Comment added successfully."
       redirect_to project_tasks_path(task_id: @comment.task_id)
     else
       render :new
@@ -30,6 +31,7 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     if @comment.update(comment_params.except('project_id'))
+      flash[:success] = "Comment updated successfully."
       redirect_to project_tasks_path(task_id: @comment.task_id)
     else
       render :edit
@@ -39,6 +41,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+    flash[:success] = "Comment deleted successfully."
     redirect_to project_tasks_path
   end
 
