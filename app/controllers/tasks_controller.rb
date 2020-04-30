@@ -33,6 +33,7 @@ class TasksController < ApplicationController
   def create
     @task = find_project.tasks.new(task_params)
     if @task.save
+      flash[:success] = "Task created successfully."
       redirect_to project_tasks_path(project_id: @task.project_id)
     else
       render :new
@@ -41,6 +42,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
+      flash[:success] = "Task updated successfully."
       redirect_to project_tasks_path(project_id: @task.project_id)
     else
       render :edit
@@ -49,6 +51,7 @@ class TasksController < ApplicationController
 
   def destroy
     @task.destroy
+    flash[:success] = "Task deleted successfully."  
     redirect_to project_tasks_path(project_id: @task.project_id)
   end
 

@@ -44,3 +44,13 @@
 @media all and (max-width: 991px) {
   .uploadedImages .upload-image img {width: 120px;}
 }
+
+.alert .alert-heading{
+  margin-bottom: 15px;
+  text-align: left;
+  font-size: 18px;
+  color: inherit
+}
+.alert ul{
+  padding-left:15px
+}
