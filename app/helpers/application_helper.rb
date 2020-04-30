@@ -28,5 +28,5 @@ module ApplicationHelper
     when :danger, :error, :alert
       'alert-danger'
     end
-  end  
+  end
 end
