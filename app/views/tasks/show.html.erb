@@ -83,7 +83,7 @@
                   <% end %>
                 </span>
                 <span class="delete-comment">
-                  <%= link_to project_task_comment_path(task_id: comment.task_id, id: comment.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <%= link_to project_task_comment_path(task_id: comment.task_id, id: comment.id), method: :delete, data: { confirm: 'Are you sure want to delete comment?' } do %>
                     <i class='fa fa-trash pd-6' data-placement="bottom" title='Delete'></i>
                   <% end %>
                 </span>
