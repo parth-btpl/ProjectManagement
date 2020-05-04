@@ -29,6 +29,7 @@ gem 'kaminari', '~> 1.2'
 gem 'ransack', '~> 2.3', '>= 2.3.2'
 # faker data generator
 gem 'faker', '~> 2.11'
+gem 'hirb', '~> 0.7.3'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
