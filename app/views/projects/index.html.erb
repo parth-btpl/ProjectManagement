@@ -6,6 +6,20 @@
           <div class="card">
             <div class="card-header card-header-primary">
               <h4 class="card-title "><b>Total Project - <%= Project.count %></b></h4>
+
+              <%= link_to "Export CSV", projects_path(format: "csv"), class: "btn btn-primary" %>
+              <%= form_tag import_projects_path, multipart: true, class: 'form-inline' do %>
+
+                <div class="form-group">
+                  <label for="file"><h4><u>Click Here Upload File</u></h4></label>
+                  <%= file_field_tag "file" %>
+                </div>
+
+                <div class="form-group">
+                  <%= submit_tag "Submit File to Import CSV", class: 'btn btn-info' %>
+                </div>
+              <% end %>
+
               <%= link_to new_project_path, class: 'btn btn-primary btn-sm float-right' do %>
                 <i class="fa fa-plus left" aria-hidden="true"></i> <span>Project</span>
               <% end %>
@@ -19,7 +33,7 @@
                       <div class="input-group-append">
                         <%= f.submit "search", class: "btn btn-outline-primary btn-sm" %>
                       </div>
-                    </div>  
+                    </div>
                   <% end %>
                 </div>
               </div>

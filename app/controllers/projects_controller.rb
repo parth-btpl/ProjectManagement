@@ -6,6 +6,16 @@ class ProjectsController < ApplicationController
   def index
     @q = Project.ransack(params[:q])
     @projects = pagination(@q.result)
+    @project_list = Project.all
+    respond_to do |format|
+      format.html
+      format.csv { send_data @project_list.to_csv(['name', 'description', 'status', 'start_date', 'end_date', 'internal_demo_date']) }
+    end
+  end
+
+  def import
+    Project.import(params[:file])
+    redirect_to projects_path, notice: "Projects imported."
   end
 
   def show; end
